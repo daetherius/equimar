@@ -2,7 +2,9 @@
 class Contact extends AppModel {
 	var $name = 'Contact';
 	var $_schema = array(
+		'producto' =>array('type'=>'string', 'length'=>255),
 		'nombre' =>array('type'=>'string', 'length'=>100),
+		'sucursal' =>array('type'=>"enum('Sucursal 1','Sucursal 2','Sucursal 3','Sucursal 4')", 'length'=>255),
 		'email' =>array('type'=>'string', 'length'=>255),
 		'empresa' =>array('type'=>'string', 'length'=>255),
 		'mensaje' =>array('type'=>'text')

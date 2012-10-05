@@ -13,4 +13,4 @@ echo $this->element('top');
 ?>
 </div>
 </div><!-- .content -->
-<?php echo $this->element('sidebar'); ?>
+<?php # echo $this->element('sidebar'); ?>

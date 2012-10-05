@@ -6,6 +6,11 @@ class ContactoController extends EmptyController {
 	var $uses = array('Contact');
 	var $helpers = array('Captcha');
 
+	function index($item = ''){
+		if($item){
+			$this->data['Contact']['producto'] = b64($item, true);
+		}
+	}
 	function enviar(){
 		$this->Contact->set($this->data);
 		if($this->Contact->validates()){

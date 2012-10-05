@@ -1,5 +1,5 @@
 <?php
-if(is_c('products',$this)){
+if(is_c('products',$this) && $this->params['action'] == 'index'){
 	$carrusel = array(
 		array('src'=>'img/bg/01.jpg'),
 		array('src'=>'img/bg/02.jpg')

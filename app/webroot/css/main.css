@@ -4,7 +4,7 @@ a:hover, a:focus { color:#000;text-decoration:underline; }
 .mceEditor{ display:block;padding:0;background:none;	} /* Outline fix for validation errors */
  
 h1, h2, h3, .title {
-	color:#333;
+	color:#338CC5;
 	font-weight:normal;
 	font-family:'Trebuchet MS', Helvetica, sans-serif;
 	line-height:130%;
@@ -228,7 +228,7 @@ body > img.bg { position:fixed; }
 #body > .sidebar { }
 	#body > .sidebar > .pad { padding:0; }
 
-.c_products #body > .contentwide > .pad { height:600px; }
+.c_contacto #body > .contentwide > .pad { padding-top:20px; }
 /* #body > .content > .pad { padding:0 0; } */
 
 /******** @SIDEBAR ************************************************/
@@ -318,15 +318,15 @@ div.captcha > span { padding-left:12px; }
 	line-height:28px;
  }
 
-.detail {}
+.detail { padding:30px;background:url(/img/wpad.png); }
 .detail .clear { margin-top:16px; }
 
-.detail .title { margin:0; }
+.detail .title { margin:0 0 12px; }
 .detail .date { font-size:11px; }
 
 /*** @Thumb *************/
 
-.thumb, .thWrap, .thMask { overflow:hidden; }
+.thumb, .thWrap, .thMask { overflow:hidden;display:block; }
 .thumb { padding:8px 16px 15px 16px; }
 .thMask {
 	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
@@ -400,9 +400,9 @@ div.captcha > span { padding-left:12px; }
 /******** @INICIO ************************************************/
 
 #carousel { margin:0 auto;background:#fff url(/img/spinner.gif) no-repeat center center; }
+.spacer { height:600px; }
 .main_categories {
 	position:relative;
-	overflow:visible;
 	background:url(/img/main_categories.png) repeat-x left bottom;
 	-moz-border-radius:0 0 8px 8px;
 	-khtml-border-radius:0 0 8px 8px;
@@ -412,7 +412,9 @@ div.captcha > span { padding-left:12px; }
 	border-top:0;
 	padding:4px 0 0 0;
 	text-align:center;
+	margin:0 0 20px 0;
 }
+.main_categories a { text-decoration:none; }
 .main_categories > li {
 	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
 	width:158px;
@@ -426,7 +428,7 @@ div.captcha > span { padding-left:12px; }
 	height:120px;
 	text-decoration:none;
 }
-.main_categories > li > a:hover { background:#338CC5 url(/img/main_categories_hover.jpg) repeat-x left top; }
+.main_categories > li:hover > a { background:#338CC5 url(/img/main_categories_hover.jpg) repeat-x left top; }
 .main_categories > li > a > .title {
 	font-size:12px;
 	line-height:14px;
@@ -435,48 +437,82 @@ div.captcha > span { padding-left:12px; }
 	margin:5px 0;
 	font-weight:bold;
 }
-.main_categories > li > a:hover > .title { color:#fff; }
+.main_categories > li:hover > a > .title { color:#fff; }
 .main_categories .lists {
 	position:absolute;
+	display:none;/**/
 	background:#fff;
-	padding:16px 20px;
-	width:392px;
+	padding:16px 20px 6px;
+	width:368px;
 	left:0;
 }
+.main_categories .lists.lefty { left:auto;right:0; }
+.main_categories > li:hover .lists { display: block; }
+
+.main_categories .lists.Motores_fuera_de_borda { width:552px; }
+.main_categories .lists.Aquamotos {  }
+.main_categories .lists.Lanchas_y_Hieleras_de_Fibra_de_Vidrio { left:151px; }
+.main_categories .lists.Productos_de_Energia {  }
+.main_categories .lists.Accesorios_de_Pesca_y_Deportivos {  }
+
 .main_categories .lists .column {
 	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
-	width:180px;
-	margin:0 8px;
+	width:160px;
+	margin:0 12px;
+	text-align:left;
 }
-.main_categories .lists.Motores_fuera_de_borda { width:588px; }
-.main_categories .lists.Aquamotos {  }
-.main_categories .lists.Lanchas_y_Hieleras_de_Fibra_de_Vidrio { left:-160px; }
-.main_categories .lists.Productos_de_Energia {  }
-.main_categories .lists.Accesorios_de_Pesca_y_Deportivos { left:-320px;  }
-
-.main_categories .lists .column .item_data {
+.main_categories .lists .column.margined { margin-top:24px; }
+.main_categories .lists .column .title {
+	font-size:13px;
+	font-weight:bold;
+	text-transform:uppercase;
+	margin:0 0 4px;
+}
+.main_categories .lists .column > ul { margin:0 0 16px 0; }
+.main_categories .lists .column .item_detail {
 	position:absolute;
-	width:280px;
+	display:none;/**/
+	width:296px;
+	top:0;
 	left:100%;
+	padding:20px 20px 20px 40px;
+	background:#fff url(/img/item_detail.jpg) repeat-y -17px top;
+}
+.main_categories .lists .column li:hover .item_detail { display:block; }
+.main_categories .lists .column .item_name { display:block; }
+.main_categories .lists .column .item_name:hover {
+	background:#338CC5;
+	color:#fff;
+}
+.main_categories .lists .column .item_detail .thumb.product { padding:0;width:auto; }
+.main_categories .lists .column .item_detail .thWrap {
+	width:auto;
+	height:auto;
+	border:#ccc solid 1px;
+	max-height:350px;
+}
+.main_categories .lists.lefty .column .item_detail {
+	left:auto;
+	right:100%;
+	padding:20px 40px 20px 20px;
+	background-position:339px top;
 }
 
 /******** @ABOUT ************************************************/
 
-.c_about .sectionHdr{ background-image:url(/img/hdrAbout.jpg); }
+#PboxAjaxContent .pad {
+	padding:25px;
 
-/******** @ALBUMS ************************************************/
+}
 
-.inlineGallery { margin:20px 0; }
-.inlineGallery a {
-	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
-	padding:0 6px;
-	margin:0 3px 15px 3px;
+/******** @PRODUCTS ************************************************/
+
+.detail > .column {
+	float:left;
+	width:360px;
+	margin:0 20px 0 0;
 }
-.inlineGallery a img {
-	box-shadow: 4px 4px 4px #999;
-	-moz-box-shadow: 4px 4px 4px #999;
-	-webkit-box-shadow: 4px 4px 4px #999;
-}
+.detail > .column.omega { width:500px;margin:0; }
 
 /******** @POSTS ************************************************/
 
@@ -484,7 +520,7 @@ div.captcha > span { padding-left:12px; }
 
 .detail .portada {
 	overflow:hidden;
-	margin:0 20px 8px 20px;
+	margin:0 0 8px 0;
 	max-height:500px;
 }
 .portada.Centro { display:block;margin:0 auto 15px auto;text-align:center; }
@@ -499,10 +535,8 @@ div.captcha > span { padding-left:12px; }
 
 .c_services .sectionHdr { background-image:url(/img/hdrServices.jpg); }
 
-/******** @PODCASTS ************************************************/
-
 #pPlayer{ margin:30px 0;padding:0 30px; }
-.vPlayer{ display:block;margin:20px auto;width:640px;height:360px; }
+.vPlayer{ display:block;margin:20px auto;width:360px;height:203px; }
 
 /******** @FAQS ************************************************/
 

@@ -1,5 +1,5 @@
 <?php
-$wide = isset($wide) && $wide ? 'wide':'';
+$wide = isset($wide) ? ($wide ? 'wide':''):'wide';
 $sub = isset($sub) ? $sub : false;
 $main_categories = isset($main_categories) ? $main_categories : true;
 
@@ -8,12 +8,12 @@ if(isset($header)){
 		$header = '';
 	
 	} elseif(is_string($header)) {
-		$header = $html->div('sectionHdr',$header);
+		$header = $html->div('title title1',$header);
 	
 	} elseif(is_array($header)) {
 		$text = $header['text'];
 		unset($header['text']);
-		$header = $html->div('sectionHdr',$html->link($text,$header));
+		$header = $html->div('title',$html->link($text,$header));
 	}
 } else {
 	$header = '';

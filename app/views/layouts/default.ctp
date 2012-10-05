@@ -45,7 +45,7 @@ echo
   <script>window.MooTools || document.write('<script src="/js/moo13.js"><\/script>')</script>
 <?php
 	echo
-		$html->script(array('moo13m','utils','pulsembox')),
+		$html->script(array('moo13m','utils','pulsembox','mooshowcase')),
 		$scripts_for_layout,
 		$moo->writeBuffer(array('onDomReady'=>false)),
 		//$this->element('gfont',array('fonts'=>array('Cantarell','Droid+Serif'))),

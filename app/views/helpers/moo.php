@@ -61,13 +61,19 @@ class MooHelper extends JsHelper {
 
 			if($options['spinner']){
 				$autoid = time();
+				$spinner_target = $options['spinner'] === true ? $element : (is_array($options['spinner']) ? reset($options['spinner']) : $options['spinner']);
+				$options['onrequest'].= 'var spinner = ';
+
 				if(is_array($options['spinner'])){
-					$options['onrequest'].= ' new Element("div.spinnerLayer",{ id:"spinner_'.$autoid.'", styles:{ opacity:0 }}).inject($('.(reset($options['spinner'])).')).fade(0.6); ';
+					$options['onrequest'].= 'new Element("div.spinnerLayer",{ id:"spinner_'.$autoid.'", styles:{ opacity:0 }}); spinner.inject($('.$spinner_target.')).fade(0.6);';
 				} else {
-					$options['onrequest'].= ' new Element("img",{ id:"spinner_'.$autoid.'", src:"/img/spinner.gif", alt:"Cargando...", styles:{ "margin-left": 6, "vertical-align":"middle" } }).inject($('.(is_string($options['spinner']) ? $options['spinner'] : '"'.$element.'"').'),"after"); ';
+					$options['onrequest'].= 'new Element("img",{ id:"spinner_'.$autoid.'", src:"/img/spinner.gif", alt:"Cargando...", styles:{ "margin-left": 6, "vertical-align":"middle" } }); spinner.inject($('.($options['spinner'] === true ? '"'.$element.'"' : $options['spinner']).'),"after");';
 				}
-				$options['oncomplete'].= '$("spinner_'.$autoid.'").destroy();';
-				$options['onfailure'].= '$("spinner_'.$autoid.'").destroy();';
+
+				$options['onrequest'].= ' $('.$spinner_target.').store("spinner",spinner);';
+
+				$options['oncomplete'].= '$('.$spinner_target.').retrieve("spinner").destroy();';
+				$options['onfailure'].= '$('.$spinner_target.').retrieve("spinner").destroy();';
 			}
 
 			if($options['onrequest'])
@@ -170,7 +176,7 @@ class MooHelper extends JsHelper {
 	function showcase($el, $options=array()){
 		$options = $this->Util->json($options);
 		$this->Html->css('mooshowcase','stylesheet',array('inline'=>false));
-		$this->Html->script('mooshowcase',false);
+		//$this->Html->script('mooshowcase',false);
 		$this->buffer('new mooShowcase("'.$el.'"'.$options.');');
 	}
 

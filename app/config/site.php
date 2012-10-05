@@ -61,11 +61,12 @@ $config['Site']['og'] = array(
  * - admin: Nombre del catálogo en el menú del panel de administración, o si es array: Si tiene 1 elemento indica la clase del botón, o si son 2 elementos, el label y la clase; si no se especifica, lo toma de 'menu', sino de 'label'; especificar a false para omitir
 */
 $modules = array(
-	'categories'=>array('categorías','admin'=>array('tags')),
 	'products'=>array('productos','menu','admin'=>array('')),
-	'productimgs'=>array('Imágenes','admin'=>false),
+		'productimgs'=>array('Imágenes','admin'=>false),
 	'about'=>array('quiénes somos','menu','admin'=>array('pages')),
 	'services'=>array('servicios','menu','admin'=>array('pages')),
+	'posts'=>array('blog','menu','admin'=>array('posts')),
+		'postimgs'=>array('Imágenes','admin'=>false),
 	//'carousels'=>array('Carrusel','admin'=>array('photos')),
 	//'banners'=>array('admin'=>array('banners')),
 	'contacto'=>array('menu','admin'=>false),

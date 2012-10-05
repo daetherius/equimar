@@ -2,11 +2,9 @@
 class Product extends AppModel {
 	var $name = 'Product';
 	var $labels = array(
-		'comment_count'=>'comentarios',
 		'category'=>'categoría',
 		'productimg_count'=>'Imágenes'
 	);
-
 	var $hasMany = array(
 		'Comment'=>array(
 			'className'=>'Comment',
@@ -28,6 +26,10 @@ class Product extends AppModel {
 	);
 	var $validate = array();
 	var $skipValidation = array('descripcion','src');
-
+	
+	function beforeValidate(){
+		$this->clean($this->data,false,array('descripcion','intro'));
+		return true;
+	}
 }
 ?>

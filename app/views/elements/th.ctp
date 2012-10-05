@@ -51,10 +51,8 @@ if($item){
 		break;
 		//////////
 		case 'Product':
-			if($shop){
-				$th['precio'] = $html->para('precio',$item[$model]['precio']);
-				//$th[] = $html->link('Agregar al Carro',array('controller'=>'products','action'=>'add2cart',$item[$model]['id']),array('class'=>'add2cart'));
-			}
+			$thopts = array('w'=>296,'h'=>300);
+			$th = array('img'=>false,'desc'=>$html->div('desc tmce',$item[$model]['intro']));
 		break;
 		//////////
 		case 'Album':

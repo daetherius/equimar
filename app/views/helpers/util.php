@@ -292,9 +292,10 @@ class UtilHelper extends AppHelper {
 			default:
 			return '<object '.($this->serializeHTML($HTMLatts)).'>
 				<param name="movie" value="http://www.youtube.com/v/'.$yid.'?version=3&amp;hl=es_MX"></param>
+				<param name="wMode" value="transparent"></param>
 				<param name="allowFullScreen" value="true"></param>
 				<param name="allowscriptaccess" value="always"></param>
-				<embed width="'.$HTMLatts['width'].'" height="'.$HTMLatts['height'].'" src="http://www.youtube.com/v/'.$yid.'?version=3&amp;hl=es_MX" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"></embed>
+				<embed width="'.$HTMLatts['width'].'" height="'.$HTMLatts['height'].'" src="http://www.youtube.com/v/'.$yid.'?version=3&amp;hl=es_MX" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wMode="transparent"></embed>
 			</object>';
 			break;
 		}
@@ -378,8 +379,8 @@ class UtilHelper extends AppHelper {
 		foreach ($data as $slug => $nombre) {
 			echo
 				$this->Html->tag('li'),
-					$this->Html->link($nombre,array('controller'=>'products','action'=>'ver','id'=>$slug),array('class'=>'item_data_name')),
-					$this->Html->div('item_data','',array('id'=>'item_'.((int)$slug))),
+					$this->Html->link($nombre,array('controller'=>'products','action'=>'ver','id'=>$slug),array('class'=>'item_name','rel'=>(int)$slug)),
+					$this->Html->div('item_detail','',array('id'=>'item_'.((int)$slug))),
 				'</li>';
 		}
 

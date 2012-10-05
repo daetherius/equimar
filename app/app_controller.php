@@ -36,12 +36,9 @@ class AppController extends Controller {
 				$this->loadModel('Product');
 				Cache::write('product_all',$this->Product->find_(array('contain'=>false,'fields'=>array('slug','nombre','category')),'list'));
 			}
-			fb(Cache::read('product_all'),'product_all');
-
 		}
 			
 		//// Session
-
 
 		$prefixes = Configure::read('Routing.prefixes');
 		

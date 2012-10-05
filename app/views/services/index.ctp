@@ -4,4 +4,3 @@ if($item) echo $html->div(null,$item[$_m[0]]['descripcion'],array('id'=>'aboutTe
 ?>
 </div>
 </div>
-<?php echo $this->element('sidebar'); ?>
