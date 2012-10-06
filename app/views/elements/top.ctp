@@ -19,10 +19,16 @@ if(isset($header)){
 	$header = '';
 }
 
+if(empty($this->params['isAjax']))
+	echo $this->element('main_categories');
+
 echo
 	$html->div('content'.$wide),
-	$html->div('pad'),
+	$html->div('pad trans'),
+	$html->div('trans'),
 	$header;
+
+
 
 /*
 if($main_categories){

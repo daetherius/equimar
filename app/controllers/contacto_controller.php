@@ -15,12 +15,7 @@ class ContactoController extends EmptyController {
 		$this->Contact->set($this->data);
 		if($this->Contact->validates()){
 			$site = Configure::read('Site');
-			$data = array(
-				'nombre'=>$this->data['Contact']['nombre'],
-				'email'=>$this->data['Contact']['email'],
-				'empresa'=>$this->data['Contact']['empresa'],
-				'mensaje'=>$this->data['Contact']['mensaje']
-			);
+			$data = $this->data['Contact'];
 
 			/*
 			$this->Email->delivery = 'smtp';
@@ -33,7 +28,8 @@ class ContactoController extends EmptyController {
 			);
 			*/
 			$this->Contact->clean($data,false,false);
-			$this->set($data);
+			$fields = array_keys($this->Contact->_schema);
+			$this->set(compact('data','fields'));
 			
 			$this->Email->to = $site['email'];
 			$this->Email->from = $site['name'].' <noreply@'.$site['domain'].'>';

@@ -60,6 +60,7 @@ if($item){
 		break;
 		//////////
 		case 'Post':
+			$thopts =  array('w'=>251,'h'=>142,'fill'=>true);
 		default:
 		break;
 	}

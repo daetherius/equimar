@@ -2,7 +2,6 @@
 	
 echo
 	$this->element('top'),
-	$this->element('main_categories'),
 	$html->div('detail clear'),
 		$html->tag('h1',$item[$_m[0]]['nombre'],array('class'=>'title')),
 		$html->div('column'),
@@ -24,14 +23,21 @@ echo
 			if(!empty($item[$_m[0]]['video'])){
 				echo $util->youtube($item[$_m[0]]['video'],'player',array('width'=>360,'height'=>203));
 			}
+			$item[$_m[0]]['enlace'] = 'power.com';
+			if(!empty($item[$_m[0]]['enlace'])){
+				echo $html->link('Visite el minisitio de este producto',$item[$_m[0]]['enlace'],array('class'=>'minisite','target'=>'_blank','rel'=>'nofollow'));
+			}
 
 	echo '</div>',
 		$html->div('column omega'),
-			$html->link('Orderar',array('controller'=>'contacto','action'=>'index',b64($item[$_m[0]]['nombre'])),array('class'=>'ordernow')),
-			$html->div('desc tmce',$item[$_m[0]]['descripcion'].''),
+			$html->div('desc tmce'),
+				$html->link('Ordene Ahora',array('controller'=>'contacto','action'=>'index',b64(_dec($item[$_m[0]]['nombre']))),array('class'=>'ordernow')),
+				$item[$_m[0]]['descripcion'],
+			'</div>',
 			$this->element('share'),
 		'</div>',
 	'</div>';
 ?>
-</div>
-</div><!-- content -->
+</div><!-- .trans -->
+</div><!-- .pad -->
+</div><!-- .content -->

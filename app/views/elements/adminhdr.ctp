@@ -58,7 +58,7 @@ $filtering = isset($this->params['named']['q']);
 
 if(($pgcnt && $filtro) || $filtering){
 	$filtro = $form->create(false,array('url'=>array('page'=>1))).
-		$form->input('category',array('options'=>Configure::read('Site.categories'),'label'=>false)).
+		(is_c('products',$this) ? $form->input('category',array('options'=>Configure::read('Site.categories'),'label'=>false)) : '').
 		$form->input('q',array('div'=>'ib','label'=>false,'placeholder'=>'Escriba ID o Nombre')).
 		$form->submit('Filtrar',array('name'=>'data[action]','div'=>'submit ib')).
 		(isset($this->data['q']) && $this->data['q'] ? $form->submit('reset',array('name'=>'data[action]','div'=>'submit ib','class'=>'reset','title'=>'Cancelar búsqueda')):'').

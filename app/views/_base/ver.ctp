@@ -10,6 +10,7 @@ if(isset($item[$_m[0]]['layout']) && $item[$_m[0]]['layout']){
 	
 echo
 	$this->element('top'),
+	$html->link('Regresar',array('controller'=>'posts','action'=>'index'),array('class'=>'back')),
 	$html->div('detail'),
 		$html->tag('h1',$item[$_m[0]]['nombre'],array('class'=>'title')),
 		$html->para('date',$util->fdate('s',$item[$_m[0]]['created'])),
@@ -30,6 +31,7 @@ echo
 		$this->element('comments'),
 	'</div>';
 ?>
-</div>
-</div><!-- content -->
+</div><!-- .trans -->
+</div><!-- .pad -->
+</div><!-- .content -->
 <?php echo $this->element('sidebar'); ?>

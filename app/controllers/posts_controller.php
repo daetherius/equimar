@@ -4,7 +4,7 @@ class PostsController extends ItemsController{
 	var $name = 'Posts';
 	var $pageTitle = 'Noticias';
 	var $uses = array('Post','Postimg','Comment');
-//*
+/*
 	function admin_agregar() {
 		if(!empty($this->data)){
 			$tags = $this->data['Tag'];unset($this->data['Tag']);

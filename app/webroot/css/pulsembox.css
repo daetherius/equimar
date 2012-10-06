@@ -17,7 +17,7 @@
 	z-index:100;
 	top:0;
 	left:0;
-	background:#000 none no-repeat center center;
+	background:#fff none no-repeat center center;
 }
 #PboxHeader{
 	position:relative;
@@ -75,7 +75,7 @@
 #PboxCaption a:hover, #PboxCaption a:focus { color: #3388FF; }
 #PboxCaption a:visited { color: #A9BBDA; }
 #PboxAjaxContent{
-	background:#fff;
+	background:transparent;
 	clear:both;
 	padding:0;
 	text-align:left;

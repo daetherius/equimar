@@ -1,9 +1,9 @@
 <?php
-echo $this->element('top');
+echo $this->element('top',array('header'=>$_ts));
 	
 	if($items){
 		foreach($items as $item)
-			echo $this->element('th',array('item'=>$item));
+			echo $this->element('th',array('item'=>$item,'v'=>1));
 			
 		echo $this->element('pages');
 
@@ -14,4 +14,3 @@ echo $this->element('top');
 </div><!-- .trans -->
 </div><!-- .pad -->
 </div><!-- .content -->
-<?php # echo $this->element('sidebar'); ?>

@@ -130,9 +130,6 @@ class AbcsController extends MyController{
 			$this->set(Inflector::tableize($habtmModel),$habtmData);
 		}
 
-		if(!file_exists(VIEWS.$this->viewPath.DS.'admin_editar.ctp')){
-			$this->detour(false,'admin_agregar');
-		}
 	}
 }
 ?>
