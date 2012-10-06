@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"cklink",
+				"cklink	cklink"
+			],
+			[
+				"fs",
+				"fs	fs"
+			],
+			[
+				"param",
+				"paramn	paramn"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
 				"main_categ",
 				"main_categories"
 			],
@@ -146,10 +162,6 @@
 			[
 				"ar",
 				"ar	ar"
-			],
-			[
-				"cklink",
-				"cklink	cklink"
 			],
 			[
 				"ckbe",
@@ -351,6 +363,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "models/contact.php",
+			"settings":
+			{
+				"buffer_size": 1318,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -464,40 +484,54 @@
 	},
 	"file_history":
 	[
-		"/W/equimar/app/webroot/css/main.css",
-		"/W/equimar/app/config/site.php",
-		"/W/equimar/app/views/_base/index.ctp",
+		"/W/equimar/app/views/contacto/index.ctp",
+		"/W/equimar/app/views/elements/th.ctp",
+		"/W/equimar/app/views/_base/ver.ctp",
+		"/W/equimar/app/views/posts/index.ctp",
+		"/W/equimar/app/webroot/css/pulsembox.css",
 		"/W/equimar/app/views/elements/top.ctp",
+		"/W/equimar/app/webroot/css/main.css",
+		"/W/equimar/app/config/database.php",
+		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/core.php",
+		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/index.php",
 		"/W/equimar/app/views/products/index.ctp",
-		"/W/equimar/app/views/products/ver.ctp",
-		"/W/equimar/app/views/elements/bg.ctp",
-		"/W/equimar/app/views/elements/menu.ctp",
-		"/W/equimar/app/views/elements/inputs.ctp",
-		"/W/equimar/app/models/services.php",
 		"/W/equimar/app/views/about/index.ctp",
 		"/W/equimar/app/views/services/index.ctp",
+		"/W/equimar/app/views/products/ver.ctp",
+		"/W/equimar/app/views/_base/index.ctp",
+		"/W/equimar/app/views/elements/inputs.ctp",
+		"/W/equimar/app/controllers/contacto_controller.php",
+		"/W/__cake/app/controllers/contacto_controller.php",
+		"/W/equimar/app/models/contact.php",
+		"/W/__cake/app/views/contacto/index.ctp",
+		"/W/equimar/app/views/elements/email/html/contact.ctp",
+		"/W/__cake/app/views/elements/email/html/contact.ctp",
+		"/W/equimar/app/config/site.php",
+		"/W/equimar/app/views/elements/adminhdr.ctp",
+		"/W/equimar/app/views/elements/main_categories.ctp",
+		"/W/nunu/app/views/elements/footer.ctp",
+		"/W/equimar/app/controllers/_base/abcs_controller.php",
+		"/W/equimar/app/controllers/posts_controller.php",
+		"/W/equimar/app/views/elements/bg.ctp",
+		"/W/equimar/app/views/elements/menu.ctp",
+		"/W/equimar/app/models/services.php",
 		"/W/equimar/app/controllers/about_controller.php",
 		"/W/equimar/app/controllers/services_controller.php",
 		"/W/equimar/app/controllers/_base/section_controller.php",
 		"/W/equimar/app/app_controller.php",
 		"/W/equimar/app/views/elements/main_category.ctp",
-		"/W/equimar/app/views/elements/main_categories.ctp",
 		"/W/equimar/app/webroot/css/mooslider.css",
 		"/W/equimar/app/views/helpers/util.php",
 		"/W/__cake/app/views/helpers/util.php",
 		"/W/equimar/app/controllers/products_controller.php",
 		"/W/equimar/app/views/inicio/index.ctp",
 		"/W/equimar/app/models/product.php",
-		"/W/equimar/app/views/elements/th.ctp",
 		"/W/equimar/app/views/helpers/moo.php",
 		"/W/equimar/app/webroot/js/utils.js",
 		"/W/equimar/app/controllers/_base/items_controller.php",
 		"/W/equimar/app/views/layouts/default.ctp",
 		"/W/rosel/app/views/doctors/index.ctp",
 		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/bootstrap.php",
-		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/core.php",
-		"/W/equimar/app/views/elements/adminhdr.ctp",
-		"/W/equimar/app/controllers/_base/abcs_controller.php",
 		"/W/equimar/app/views/products/admin_index.ctp",
 		"/W/equimar/app/views/products/admin_agregar.ctp",
 		"/W/ebodas2/app/views/elements/adminhdr.ctp",
@@ -515,7 +549,6 @@
 		"/W/somosmas/app/models/document.php",
 		"/W/somosmas/app/models/timeline.php",
 		"/W/equimar/app/views/elements/cart.ctp",
-		"/W/equimar/app/config/database.php",
 		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/core 2.php",
 		"/W/equimar/app/webroot/js/mooshowcase.js",
 		"/W/equimar/app/config/routes.php",
@@ -555,7 +588,6 @@
 		"/C/Dropbox/Env/Sublime Text 2/Data/Packages/User/Default (Linux).sublime-keymap",
 		"/C/Dropbox/Env/Sublime Text 2/Data/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Dropbox/Env/Sublime Text 2/Data/Packages/User/PHP.sublime-settings",
-		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/index.php",
 		"/W/multiland/styles/css/content.css",
 		"/W/__cake/app/webroot/js/placeholder.js",
 		"/W/__cake/app/config/core.php",
@@ -579,19 +611,7 @@
 		"/W/diezrichter/app/views/elements/share.ctp",
 		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/database.php",
 		"/W/__cake/app/controllers/components/paypal.php",
-		"/W/__cake/app/views/elements/cart.php",
-		"/W/__cake/app/views/products/admin_agregar.ctp",
-		"/W/__cake/app/controllers/inicio_controller.php",
-		"/W/huerto/app/controllers/contacto_controller.php",
-		"/W/__cake/app/views/_base/ver.ctp",
-		"/W/__cake/app/views/products/admin_index.ctp",
-		"/W/huerto/app/config/core.php",
-		"/W/__cake/app/views/elements/tinymce.ctp",
-		"/W/edrecolchas/app/views/elements/tinymce.ctp",
-		"/W/__cake/app/views/elements/inputs.ctp",
-		"/W/vianam/app/app_helper.php",
-		"/C/Users/Dan/AppData/Local/Temp/fz3temp-1/app_helper.php",
-		"/W/vianam/app/config/bootstrap.php"
+		"/W/__cake/app/views/elements/cart.php"
 	],
 	"find":
 	{
@@ -609,6 +629,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"143.3",
+			".3",
+			"shadow:",
+			"wpad.png",
+			"tran.png",
+			"tran",
+			"back",
+			"a.back",
+			".back",
+			".submit",
+			"#ajax",
+			"wtran",
+			"$data_field",
+			"&& ",
+			"isset",
+			".pad",
+			"showcase",
+			"\"",
+			"captcha",
 			"About",
 			"aboutText",
 			".title",
@@ -717,26 +756,7 @@
 			"collapse",
 			"'));\n",
 			"retrieve",
-			"$controller->",
-			"$controller",
-			"retur",
-			"return ",
-			"$this->",
-			"$msg",
-			"cart",
-			"SESSION",
-			"$Prod",
-			".Product",
-			"$buyer",
-			"('buyer'",
-			"buyer",
-			"Shopc",
-			"shop",
-			"shopcart",
-			".shopcart",
-			"shopcart",
-			"js",
-			"ajax"
+			"$controller->"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -772,8 +792,85 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "models/contact.php",
+					"settings":
+					{
+						"buffer_size": 1318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								317,
+								317
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -819,28 +916,128 @@
 		"selected_items":
 		[
 			[
-				"bg",
-				"views/elements/bg.ctp"
+				"contac",
+				"models/contact.php"
 			],
 			[
-				"produver",
+				"data",
+				"config/database.php"
+			],
+			[
+				"contacindex",
+				"views/contacto/index.ctp"
+			],
+			[
+				"th",
+				"views/elements/th.ctp"
+			],
+			[
+				"postsindex",
+				"views/posts/index.ctp"
+			],
+			[
+				"prodindex",
+				"views/products/index.ctp"
+			],
+			[
+				"pulsem",
+				"webroot/css/pulsembox.css"
+			],
+			[
+				"serviindex",
+				"views/services/index.ctp"
+			],
+			[
+				"aboutindex",
+				"views/about/index.ctp"
+			],
+			[
+				"postsinde",
+				"views/posts/index.ctp"
+			],
+			[
+				"prodver",
 				"views/products/ver.ctp"
 			],
 			[
-				"top",
-				"views/elements/top.ctp"
-			],
-			[
-				"producindex",
-				"views/products/index.ctp"
+				"_basver",
+				"views/_base/ver.ctp"
 			],
 			[
 				"_baseindex",
 				"views/_base/index.ctp"
 			],
 			[
+				"producindex",
+				"views/products/index.ctp"
+			],
+			[
+				"top",
+				"views/elements/top.ctp"
+			],
+			[
+				"ver",
+				"views/products/ver.ctp"
+			],
+			[
+				"maincss",
+				"webroot/css/main.css"
+			],
+			[
+				"conta",
+				"models/contact.php"
+			],
+			[
+				"cont",
+				"controllers/contacto_controller.php"
+			],
+			[
+				"inpt",
+				"views/elements/inputs.ctp"
+			],
+			[
+				"containdex",
+				"views/contacto/index.ctp"
+			],
+			[
+				"mainc",
+				"views/elements/main_categories.ctp"
+			],
+			[
+				"producver",
+				"views/products/ver.ctp"
+			],
+			[
+				"posindex",
+				"views/products/index.ctp"
+			],
+			[
+				"hdr",
+				"views/elements/adminhdr.ctp"
+			],
+			[
+				"abcs",
+				"controllers/_base/abcs_controller.php"
+			],
+			[
+				"post",
+				"controllers/posts_controller.php"
+			],
+			[
 				"site",
 				"config/site.php"
+			],
+			[
+				"inputs",
+				"views/elements/inputs.ctp"
+			],
+			[
+				"bg",
+				"views/elements/bg.ctp"
+			],
+			[
+				"produver",
+				"views/products/ver.ctp"
 			],
 			[
 				"sectioncontr",
@@ -851,20 +1048,8 @@
 				"controllers/_base/section_controller.php"
 			],
 			[
-				"inputs",
-				"views/elements/inputs.ctp"
-			],
-			[
 				"aboutine",
 				"views/about/index.ctp"
-			],
-			[
-				"aboutindex",
-				"views/about/index.ctp"
-			],
-			[
-				"maincss",
-				"webroot/css/main.css"
 			],
 			[
 				"menu",
@@ -935,10 +1120,6 @@
 				"controllers/products_controller.php"
 			],
 			[
-				"th",
-				"views/elements/th.ctp"
-			],
-			[
 				"prod",
 				"models/product.php"
 			],
@@ -975,10 +1156,6 @@
 				"views/elements/adminhdr.ctp"
 			],
 			[
-				"abcs",
-				"controllers/_base/abcs_controller.php"
-			],
-			[
 				"admin_a",
 				"views/products/admin_agregar.ctp"
 			],
@@ -1003,10 +1180,6 @@
 				"views/elements/cart.ctp"
 			],
 			[
-				"data",
-				"config/database.php"
-			],
-			[
 				"showca",
 				"webroot/js/mooshowcase.js"
 			],
@@ -1017,10 +1190,6 @@
 			[
 				"route",
 				"config/routes.php"
-			],
-			[
-				"ver",
-				"views/products/ver.ctp"
 			],
 			[
 				"paypal",
@@ -1257,78 +1426,6 @@
 			[
 				"produadmin_ed",
 				"views/products/admin_editar.ctp"
-			],
-			[
-				"categz_",
-				"controllers/_base/categorizeditems_controller.php"
-			],
-			[
-				"categor_",
-				"controllers/categories_controller.php"
-			],
-			[
-				"curren",
-				"controllers/currencies_controller.php"
-			],
-			[
-				"currency",
-				"models/currency.php"
-			],
-			[
-				"categori",
-				"controllers/_base/categorizeditems_controller.php"
-			],
-			[
-				"abcs_",
-				"controllers/_base/abcs_controller.php"
-			],
-			[
-				"labels_",
-				"controllers/_base/labels_controller.php"
-			],
-			[
-				"items_cn",
-				"controllers/_base/items_controller.php"
-			],
-			[
-				"admin_orden",
-				"views/_base/admin_orden.ctp"
-			],
-			[
-				"_base/labels/",
-				"views/_base/labels/admin_index.ctp"
-			],
-			[
-				"admin_orde",
-				"views/_base/admin_orden.ctp"
-			],
-			[
-				"product.",
-				"models/product.php"
-			],
-			[
-				"producs",
-				"controllers/products_controller.php"
-			],
-			[
-				"produt",
-				"models/product.php"
-			],
-			[
-				"datab",
-				"config/database.php"
-			],
-			[
-				"routes",
-				"config/routes.php"
-			],
-			[
-				"sear",
-				"models/search.php"
-			],
-			[
-				"producsindex",
-				"views/products/index.ctp"
 			]
 		],
 		"width": 0.0
@@ -1338,6 +1435,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"equimar",
+				"/W/equimar/app/equimar.sublime-project"
+			],
 			[
 				"cake",
 				"/W/__cake2/app/cake2.sublime-project"
