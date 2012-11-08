@@ -363,14 +363,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "models/contact.php",
-			"settings":
-			{
-				"buffer_size": 1318,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -484,6 +476,7 @@
 	},
 	"file_history":
 	[
+		"/W/equimar/app/models/contact.php",
 		"/W/equimar/app/views/contacto/index.ctp",
 		"/W/equimar/app/views/elements/th.ctp",
 		"/W/equimar/app/views/_base/ver.ctp",
@@ -502,7 +495,6 @@
 		"/W/equimar/app/views/elements/inputs.ctp",
 		"/W/equimar/app/controllers/contacto_controller.php",
 		"/W/__cake/app/controllers/contacto_controller.php",
-		"/W/equimar/app/models/contact.php",
 		"/W/__cake/app/views/contacto/index.ctp",
 		"/W/equimar/app/views/elements/email/html/contact.ctp",
 		"/W/__cake/app/views/elements/email/html/contact.ctp",
@@ -792,85 +784,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "models/contact.php",
-					"settings":
-					{
-						"buffer_size": 1318,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								317,
-								317
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1435,6 +1350,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"somos",
+				"/W/somosmas/app/somosmas.sublime-project"
+			],
 			[
 				"equimar",
 				"/W/equimar/app/equimar.sublime-project"

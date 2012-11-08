@@ -17,6 +17,7 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+*.sublime*
 
 # Cake TMP Dirs
 /app/tmp/*
@@ -49,3 +50,9 @@ Thumbs.db
 /app/tmp/tests/*
 !/app/tmp/tests/
 !/app/tmp/tests/empty
+
+/app/webroot/cache/*
+!/app/webroot/cache/
+
+/app/webroot/upload/*
+!/app/webroot/upload/
