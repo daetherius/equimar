@@ -31,7 +31,7 @@ function is_c($controllers,&$obj){ return in_array($obj->params['controller'],(a
 function my_url_parser($url,&$obj){
 		$carried = array(
 			'*'=>array('lang'),
-			'works'=>array('tipo'),
+			'products'=>array('category'),
 			'posts'=>array('category'),
 		);
 		

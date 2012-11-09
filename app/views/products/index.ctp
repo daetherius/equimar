@@ -4,6 +4,5 @@ echo
 	$html->div('contentwide'),
 	$html->div('pad');
 ?>
-</div><!-- .trans -->
 </div><!-- .pad -->
 </div><!-- .content -->

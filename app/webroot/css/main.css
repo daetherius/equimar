@@ -229,7 +229,7 @@ body > img.bg { position:fixed; }
 #body > .sidebar { }
 	#body > .sidebar > .pad { padding:0; }
 
-.c_products.a_index #body > .contentwide > .pad { background:transparent; }
+.c_products.a_home #body > .contentwide > .pad { background:transparent; }
 /* #body > .content > .pad { padding:0 0; } */
 
 /******** @SIDEBAR ************************************************/
@@ -528,8 +528,8 @@ a.ordernow, a.minisite {
 }
 a.ordernow:hover, a.minisite:hover { background-position:center -86px;color:#fff;text-shadow:0px 1px 0px #21587C; }
 a.ordernow {
-	width:150px;
 	float:right;
+	width:150px;
 	font-size:24px;
 	margin:0 0 8px 20px;
 	padding:0 15px;

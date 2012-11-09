@@ -51,8 +51,14 @@ if($item){
 		break;
 		//////////
 		case 'Product':
-			$thopts = array('w'=>296,'h'=>300);
-			$th = array('img'=>false,'desc'=>$html->div('desc tmce',$item[$model]['intro']));
+			$th = array('img'=>false,'nombre'=>false,'desc'=>$html->div('desc tmce',$item[$model]['intro'].''));
+
+			if($mini){
+				unset($th['desc']);
+			} else {
+				$thopts = array('w'=>296,'h'=>300);
+			}
+
 		break;
 		//////////
 		case 'Album':
@@ -65,7 +71,7 @@ if($item){
 		break;
 	}
 
-	if($mini) $th = array('nombre'=>$th['nombre']);
+	//if($mini) $th = array('nombre'=>$th['nombre']);
 	
 	foreach($th as $key => $value){
 		if($value === false){

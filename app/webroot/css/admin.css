@@ -479,11 +479,12 @@ div.uploadinfo a{ text-decoration:underline; }
 .controles{ margin-bottom:15px; }
 .controles form{
 	float:right;
-	width:316px;
+	width:602px;
 	position:relative;
 }
+.controles form #category { margin-right:8px; }
 .controles form #q { width:180px;margin-right:8px;padding-right:30px; }
-.controles form .input.text, .controles form .submit { padding:0;margin:0; }
+.controles form .input.select, .controles form .input.text, .controles form .submit { padding:0;margin:0; }
 .controles form .submit .reset{
 	text-indent:-9999px;
 	border:none;

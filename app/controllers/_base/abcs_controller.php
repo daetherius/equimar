@@ -13,10 +13,12 @@ class AbcsController extends MyController{
 				$this->redirect(array(
 					'q'=>b64($this->data['q'])
 				));
-			} elseif(isset($this->data['category']) && $this->data['category']) {
-				$this->redirect(array(
-					'category'=>b64($this->data['category'])
-				));
+			} elseif(isset($this->data['category'])) {
+				$category = '';
+				if(!empty($this->data['category']))
+					$category = b64($this->data['category']);
+
+				$this->redirect(array('category'=>$category));
 			}
 			
 			if(isset($this->data['todelete']) && $this->data['todelete']){

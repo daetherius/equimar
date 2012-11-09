@@ -4,6 +4,24 @@ class ProductsController extends ItemsController{
 	var $name = 'Products';
 	var $uses = array('Product');
 
+	function index(){}
+	function universe($category = false){
+		$items = false;
+
+		$categories = Configure::read('Site.categories');
+		if((!empty($category)) && (!empty($categories[$category]))){
+			$categories = $categories[$category];fb($categories,'$categories');
+
+			$conds = array();
+			foreach ($categories as $value)
+				$conds['category'][] = _enc($value);
+			fb($conds,'$conds');
+			$items = $this->paginate('Product',$this->Product->find_($conds,'paginate'));
+			fb($items,'$items');
+		}
+
+		$this->set(compact('items'));
+	}
 	function ver($id = false) {
 		parent::ver($id);
 

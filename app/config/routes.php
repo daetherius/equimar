@@ -6,6 +6,7 @@ $regex = array(
 	//'category'=>'[0-9]+_[a-zA-Z0-9\-]+|^$',
 	'id'=>'[0-9]+_[a-zA-Z0-9\-]+'
 );
+Router::connect('/',array('controller'=>'products','action'=>'index'));
 
 //route
 
@@ -18,7 +19,6 @@ foreach(Configure::read('Modules') as $controller => $mod){
 	Router::connect('/admin/'.$alias.'/:action/*',array('controller'=>$controller,'action'=>':action','admin'=>1));
 }
 
-Router::connect('/',array('controller'=>'products','action'=>'index'));
 Router::connect('/registro',array('controller'=>'members','action'=>'registro'));
 Router::connect('/login',array('controller'=>'members','action'=>'login'));
 Router::connect('/logout',array('controller'=>'members','action'=>'logout'));
