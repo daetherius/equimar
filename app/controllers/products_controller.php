@@ -15,12 +15,11 @@ class ProductsController extends ItemsController{
 			$conds = array();
 			foreach ($categories as $value)
 				$conds['category'][] = _enc($value);
-			fb($conds,'$conds');
 			$items = $this->paginate('Product',$this->Product->find_($conds,'paginate'));
-			fb($items,'$items');
 		}
 
 		$this->set(compact('items'));
+		$this->set(compact('category'));
 	}
 	function ver($id = false) {
 		parent::ver($id);
