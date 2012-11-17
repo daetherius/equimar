@@ -61,10 +61,11 @@ class UtilHelper extends AppHelper {
 				if($opts['w']) $resizeopts['w'] = $opts['w'];
 				if($opts['h']) $resizeopts['h'] = $opts['h'];
 				if($opts['fill']) $resizeopts['fill'] = true;
+				if($opts['pad']) $resizeopts['pad'] = true;
 			}
 			
 			if(array_key_exists($opts['field'],$item)){
-				if($resizeopts){
+				if($resizeopts){ fb($resizeopts,'$resizeopts');
 					$th = $this->Resize->resize($item[$opts['field']],$resizeopts);
 				} else {
 					$th = $this->Html->image('/'.$item[$opts['field']]);

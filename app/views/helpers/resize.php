@@ -77,6 +77,7 @@ class ResizeHelper extends Helper {
 		$omitResize = false;
 		
 		/*/
+		fb($originalPath,'originalPath');
 		fb($isExternal,'isExternal');
 		fb($url,'$url');
 		fb($filename,'$filename');
@@ -84,7 +85,7 @@ class ResizeHelper extends Helper {
 		fb($cachedUrl,'$cachedUrl');
 		/**/
 	
-		if (!($size = @getimagesize($originalPath))){ return ''; }
+		if (!($size = @getimagesize($originalPath))){ $this->log($originalPath,'resize_error'); return ''; }
 
 		/// Solo se especifica ancho ó alto y coincide con la original, omite resize
 		if(($opts['w'] == $size[0] && (!$opts['h'])) || ($opts['h'] == $size[1] && (!$opts['w']))){
@@ -122,7 +123,7 @@ class ResizeHelper extends Helper {
 
 		if ($resize) {
 			$image = call_user_func('imagecreatefrom'.$types[$size[2]], $originalPath);
-			#fb($image,'Image created from (url) '.$url);
+			
 			if (function_exists('imagecreatetruecolor') && ($temp = imagecreatetruecolor ($opts['w'], $opts['h']))){
 				@imagecopyresampled ($temp, $image, 0, 0, 0, 0, $opts['w'], $opts['h'], $size[0], $size[1]);
 			} else {
@@ -136,7 +137,7 @@ class ResizeHelper extends Helper {
 			}else{
 				call_user_func('image'.$types[$size[2]], $temp, $cachedPath);
 			}
-			#fb($cachedPath,'Image created to ($cachedPath)');
+
 			@chmod($cachedPath,0777);
 			@imagedestroy ($image);
 			@imagedestroy ($temp);

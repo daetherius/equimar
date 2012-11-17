@@ -55,6 +55,7 @@ if($item){
 
 			if($mini){
 				unset($th['desc']);
+				$thopts = array('w'=>180,'h'=>120,'pad'=>true);
 			} else {
 				$thopts = array('w'=>296,'h'=>300);
 			}

@@ -364,6 +364,7 @@ div.captcha > span { padding-left:12px; }
 	margin:0 0 8px 0;
 	width:auto;
 	height:auto;
+	border:#ccc solid 1px;
 }
 
 .thumb .thPlayer { padding:25px 12px; }
@@ -478,10 +479,11 @@ div.captcha > span { padding-left:12px; }
 .main_categories .lists .column .item_detail {
 	position:absolute;
 	display:none;/**/
+	overflow:hidden;
 	width:296px;
 	top:0;
 	left:100%;
-	padding:20px 20px 20px 40px;
+	padding:20px 20px 20px 30px;
 	background:#fff url(/img/item_detail.jpg) repeat-y -17px top;
 }
 .main_categories .lists .column li:hover .item_detail { display:block; }
@@ -500,7 +502,7 @@ div.captcha > span { padding-left:12px; }
 .main_categories .lists.lefty .column .item_detail {
 	left:auto;
 	right:100%;
-	padding:20px 40px 20px 20px;
+	padding:20px 30px 20px 20px;
 	background-position:339px top;
 }
 

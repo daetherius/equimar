@@ -1,9 +1,9 @@
 <?php
 $config['Site'] = array(
-	'name'=>'Nombre de la Empresa',
+	'name'=>'EQUIMAR',
 	'domain'=>$_SERVER['SERVER_NAME'],
 	'email'=>'info@'.$_SERVER['SERVER_NAME'],
-	'slogan'=>'Slogan',
+	'slogan'=>'Equipo Marino y Refacciones S.A. de C.V.',
 	'keywords'=>'',
 	'description'=>'',
 	'tw'=>'',
