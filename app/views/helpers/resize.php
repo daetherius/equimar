@@ -93,6 +93,7 @@ class ResizeHelper extends Helper {
 
 		} else {
 			if($opts['aspect']){ // adjust to aspect
+				// Redimensiona en base a la altura (Por no especificar ancho o por ser imagen vertical)
 				if((!$opts['w']) || ($opts['h'] && ($size[1]/$opts['h']) > ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
 					if($opts['fill'] && $opts['w']) {
 						$opts['h'] = ceil($opts['w'] / ($size[0]/$size[1]));
