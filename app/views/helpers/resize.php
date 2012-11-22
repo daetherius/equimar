@@ -95,14 +95,14 @@ class ResizeHelper extends Helper {
 			if($opts['aspect']){ // adjust to aspect
 				// Redimensiona en base a la altura (Por no especificar ancho o por ser imagen vertical)
 				if((!$opts['w']) || ($opts['h'] && ($size[1]/$opts['h']) > ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
-					if($opts['fill'] && $opts['w']) {
+					if($opts['fill'] && (!$opts['pad']) && $opts['w']) { // Si es relleno de área, se redimensiona en base al eje menor (ancho)
 						$opts['h'] = ceil($opts['w'] / ($size[0]/$size[1]));
 					} else {
 						$opts['w'] = ceil(($size[0]/$size[1]) * $opts['h']);
 					}
 
 				} elseif((!$opts['h']) || ($opts['w'] && ($size[1]/$opts['h']) < ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
-					if($opts['fill'] && $opts['h']){
+					if($opts['fill'] && (!$opts['pad']) && $opts['h']){
 						$opts['w'] = ceil(($size[0]/$size[1]) * $opts['h']);
 					} else {
 						$opts['h'] = ceil($opts['w'] / ($size[0]/$size[1]));
