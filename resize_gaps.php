@@ -5,7 +5,7 @@ $img = getimagesize($filename);
 $size[0] = $img[0];
 $size[1] = $img[1];
 $original = imagecreatefromjpeg($filename); // change according to your source type
-$new = imagecreatetruecolor($opts['w'], $opts['h'])
+$new = imagecreatetruecolor($opts['w'], $opts['h']);
 $white = imagecolorallocate($new, 255, 255, 255);
 imagefill($new, 0, 0, $white);
 
