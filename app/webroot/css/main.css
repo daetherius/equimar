@@ -312,7 +312,7 @@ div.captcha > span { padding-left:12px; }
 /*** Detail ***/
 
 .date { font-size:11px;color:#999;margin:5px 0 0 0; }
-.desc {  }
+.desc { text-align: justify; }
 .desc p { margin:0 0 10px 0;  }
 .comments {
 	float:left;

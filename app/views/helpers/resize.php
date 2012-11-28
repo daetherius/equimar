@@ -29,6 +29,7 @@ class ResizeHelper extends Helper {
 			'w'=>'',
 			'h'=>'',
 			'fill'=>false,
+			'pad'=>false,/// bool | array(int[0-255],int[0-255],int[0-255]) | "[0-255] [0-255] [0-255]"
 			'aspect'=>true,
 			'atts'=>array(),
 			'urlonly'=>false
@@ -36,13 +37,24 @@ class ResizeHelper extends Helper {
 		$opts = am($defaults,$opts);
 
 		if(!($opts['w'] || $opts['h'])){ $this->log(array($url,$opts),'resize_error'); return false; }
+		
+		if($opts['pad'] && !(empty($opts['w']) || empty($opts['h']))){
+			$opts['fill'] = false;
+			if(is_string($opts['pad'])){
+				$opts['pad'] = explode(' ',$opts['pad']);
+			} elseif ($opts['pad'] === true) {
+				$opts['pad'] = array(255,255,255);
+			}
+		} else {
+			$opts['pad'] = false;
+		}
 
 		$types = array(1 => 'gif', 'jpeg', 'png', 'swf', 'psd', 'wbmp'); // used to determine image type
 		$dimens = $opts['w'].'x'.$opts['h'];
 
 		$cachePath = WWW_ROOT.$this->cacheDir;
 		
-		$percorso = $cachePath.DS.$dimens;
+		$percorso = $cachePath.DS.$dimens.($opts['pad'] ? 'pad':'');
 		if(!is_dir($percorso)){
 			mkdir($percorso);
 			chmod($this->cacheDir.DS.$dimens,0777);
@@ -93,55 +105,89 @@ class ResizeHelper extends Helper {
 
 		} else {
 			if($opts['aspect']){ // adjust to aspect
-				// Redimensiona en base a la altura (Por no especificar ancho o por ser imagen vertical)
-				if((!$opts['w']) || ($opts['h'] && ($size[1]/$opts['h']) > ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
-					if($opts['fill'] && (!$opts['pad']) && $opts['w']) { // Si es relleno de área, se redimensiona en base al eje menor (ancho)
-						$opts['h'] = ceil($opts['w'] / ($size[0]/$size[1]));
+				$nx = $ny = 0;
+				
+				if(($opts['pad'])){
+					# Mas horizontal que el destino, ó cuadrado: Por ancho
+					if (($size[0] / $size[1]) >= ($opts['w'] / $opts['h'])) {
+					    $new_width = $opts['w'];
+					    $new_height = $size[1] * ($opts['w'] / $size[0]);
+					    $nx = 0;
+					    $ny = round(abs($opts['h'] - $new_height) / 2);
+					# Mas vertical que el destino: Por alto
 					} else {
-						$opts['w'] = ceil(($size[0]/$size[1]) * $opts['h']);
+					    $new_width = $size[0] * ($opts['h'] / $size[1]);
+					    $new_height = $opts['h'];
+					    $nx = round(abs($opts['w'] - $new_width) / 2);
+					    $ny = 0;
+					}
+				} else {
+					// Redimensiona en base a la altura (Por no especificar ancho o por ser imagen vertical)
+					if((!$opts['w']) || ($opts['h'] && ($size[1]/$opts['h']) > ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
+						// Si es relleno de área, se redimensiona en base al eje menor (ancho)
+						if($opts['fill'] && $opts['w']) {
+							$new_height = ceil($opts['w'] / ($size[0]/$size[1]));
+						} else {
+							$new_width = ceil(($size[0]/$size[1]) * $opts['h']);
+						}
+
+					// Redimensiona en base al ancho (Por no especificar alto o por ser imagen horizontal)
+					} elseif((!$opts['h']) || ($opts['w'] && ($size[1]/$opts['h']) < ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
+						// Si es relleno de área, se redimensiona en base al eje menor (alto)
+						if($opts['fill'] && $opts['h']){
+							$new_width = ceil(($size[0]/$size[1]) * $opts['h']);
+						} else {
+							$new_height = ceil($opts['w'] / ($size[0]/$size[1]));
+						}
 					}
 
-				} elseif((!$opts['h']) || ($opts['w'] && ($size[1]/$opts['h']) < ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
-					if($opts['fill'] && (!$opts['pad']) && $opts['h']){
-						$opts['w'] = ceil(($size[0]/$size[1]) * $opts['h']);
-					} else {
-						$opts['h'] = ceil($opts['w'] / ($size[0]/$size[1]));
-					}
 				}
 			}
 		}
 	
 		if(file_exists($cachedPath)) {
 			$csize = @getimagesize($cachedPath);
-			$cached = ($csize[0] == $opts['w'] && $csize[1] == $opts['h']); // image is cached
+			$cached = ($csize[0] == $new_width && $csize[1] == $new_height); // image is cached
 			if (@filemtime($cachedPath) < @filemtime($url)) // check if up to date
 				$cached = false;
 		} else {
 			$cached = false;
 		}
 
-		$resize = (!$cached) && (!$omitResize) ? (($size[0] > $opts['w'] || $size[1] > $opts['h']) || ($size[0] < $opts['w'] || $size[1] < $opts['h'])) : false;
+		$resize = (!$cached) && (!$omitResize) ? (($size[0] != $new_width) || ($size[1] != $new_height)) : false;
 
-		if ($resize) {
-			$image = call_user_func('imagecreatefrom'.$types[$size[2]], $originalPath);
+		if($resize){
+			$original = call_user_func('imagecreatefrom'.$types[$size[2]], $originalPath);
 			
-			if (function_exists('imagecreatetruecolor') && ($temp = imagecreatetruecolor ($opts['w'], $opts['h']))){
-				@imagecopyresampled ($temp, $image, 0, 0, 0, 0, $opts['w'], $opts['h'], $size[0], $size[1]);
+			if (function_exists('imagecreatetruecolor') && ($new = imagecreatetruecolor($new_width, $new_height))){
+				if($opts['pad']){
+					$color = imagecolorallocate($new, $opts['pad'][0], $opts['pad'][1], $opts['pad'][2]);
+					imagefill($new, 0, 0, $color);
+				}
+
+				@imagecopyresampled ($new, $original, $nx, $ny, 0, 0, $new_width, $new_height, $size[0], $size[1]);
+				
 			} else {
-				if($temp = @imagecreate($opts['w'], $opts['h'])){
-					@imagecopyresized($temp, $image, 0, 0, 0, 0, $opts['w'], $opts['h'], $size[0], $size[1]);
+				if($new = @imagecreate($new_width, $new_height)){
+					if($opts['pad']){
+						$color = imagecolorallocate($new, $opts['pad'][0], $opts['pad'][1], $opts['pad'][2]);
+						imagefill($new, 0, 0, $color);
+					}
+					@imagecopyresized($new, $original, $nx, $ny, 0, 0, $new_width, $new_height, $size[0], $size[1]);
 				}
 			}
+			
 
 			if(in_array($types[$size[2]],array('jpg','jpeg'))){
-				call_user_func('image'.$types[$size[2]], $temp, $cachedPath, 100);
-			}else{
-				call_user_func('image'.$types[$size[2]], $temp, $cachedPath);
+				call_user_func('image'.$types[$size[2]], $new, $cachedPath, 100);
+			} else {
+				call_user_func('image'.$types[$size[2]], $new, $cachedPath);
 			}
 
 			@chmod($cachedPath,0777);
-			@imagedestroy ($image);
-			@imagedestroy ($temp);
+			@imagedestroy ($original);
+			@imagedestroy ($new);
+
 		} elseif(!$cached){
 			$cachedUrl = $url;
 		}
