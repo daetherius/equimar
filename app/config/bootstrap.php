@@ -18,7 +18,6 @@
  * ));
  *
  */
-
 ini_set('default_charset', 'UTF-8');
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_ALL,DIRECTORY_SEPARATOR=='/'?array('es_MX.utf8'):array('esm.utf8'));

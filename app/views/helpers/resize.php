@@ -34,7 +34,7 @@ class ResizeHelper extends Helper {
 			'atts'=>array(),
 			'urlonly'=>false
 		);
-		$opts = am($defaults,$opts);
+		$opts = array_merge($defaults,$opts);
 
 		if(!($opts['w'] || $opts['h'])){ $this->log(array($url,$opts),'resize_error'); return false; }
 		
@@ -48,13 +48,12 @@ class ResizeHelper extends Helper {
 		} else {
 			$opts['pad'] = false;
 		}
-
 		$types = array(1 => 'gif', 'jpeg', 'png', 'swf', 'psd', 'wbmp'); // used to determine image type
-		$dimens = $opts['w'].'x'.$opts['h'];
+		$dimens = $opts['w'].'x'.$opts['h'].($opts['pad'] ? 'pad':'');
 
 		$cachePath = WWW_ROOT.$this->cacheDir;
 		
-		$percorso = $cachePath.DS.$dimens.($opts['pad'] ? 'pad':'');
+		$percorso = $cachePath.DS.$dimens;
 		if(!is_dir($percorso)){
 			mkdir($percorso);
 			chmod($this->cacheDir.DS.$dimens,0777);
@@ -89,6 +88,7 @@ class ResizeHelper extends Helper {
 		$omitResize = false;
 		
 		/*/
+		fb($percorso,'percorso');
 		fb($originalPath,'originalPath');
 		fb($isExternal,'isExternal');
 		fb($url,'$url');
@@ -113,17 +113,20 @@ class ResizeHelper extends Helper {
 					    $new_width = $opts['w'];
 					    $new_height = $size[1] * ($opts['w'] / $size[0]);
 					    $nx = 0;
-					    $ny = round(abs($opts['h'] - $new_height) / 2);
+					    $ny = floor(abs($opts['h'] - $new_height) / 2);
 					# Mas vertical que el destino: Por alto
 					} else {
 					    $new_width = $size[0] * ($opts['h'] / $size[1]);
 					    $new_height = $opts['h'];
-					    $nx = round(abs($opts['w'] - $new_width) / 2);
+					    $nx = floor(abs($opts['w'] - $new_width) / 2);
 					    $ny = 0;
 					}
 				} else {
+					$new_width = $opts['w'];
+					$new_height = $opts['h'];
 					// Redimensiona en base a la altura (Por no especificar ancho o por ser imagen vertical)
 					if((!$opts['w']) || ($opts['h'] && ($size[1]/$opts['h']) > ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
+						fb('by H');
 						// Si es relleno de área, se redimensiona en base al eje menor (ancho)
 						if($opts['fill'] && $opts['w']) {
 							$new_height = ceil($opts['w'] / ($size[0]/$size[1]));
@@ -140,7 +143,6 @@ class ResizeHelper extends Helper {
 							$new_height = ceil($opts['w'] / ($size[0]/$size[1]));
 						}
 					}
-
 				}
 			}
 		}
@@ -152,23 +154,28 @@ class ResizeHelper extends Helper {
 				$cached = false;
 		} else {
 			$cached = false;
-		}
+		} $cached = false;
 
 		$resize = (!$cached) && (!$omitResize) ? (($size[0] != $new_width) || ($size[1] != $new_height)) : false;
 
 		if($resize){
 			$original = call_user_func('imagecreatefrom'.$types[$size[2]], $originalPath);
-			
-			if (function_exists('imagecreatetruecolor') && ($new = imagecreatetruecolor($new_width, $new_height))){
+			if($opts['pad']){
+				$dst_width = $opts['w'];
+				$dst_height = $opts['h'];
+			} else {
+				$dst_width = $new_width;
+				$dst_height = $new_height;
+			}
+			if (function_exists('imagecreatetruecolor') && ($new = imagecreatetruecolor($dst_width, $dst_height))){
 				if($opts['pad']){
 					$color = imagecolorallocate($new, $opts['pad'][0], $opts['pad'][1], $opts['pad'][2]);
 					imagefill($new, 0, 0, $color);
 				}
-
 				@imagecopyresampled ($new, $original, $nx, $ny, 0, 0, $new_width, $new_height, $size[0], $size[1]);
 				
 			} else {
-				if($new = @imagecreate($new_width, $new_height)){
+				if($new = @imagecreate($dst_width, $dst_height)){
 					if($opts['pad']){
 						$color = imagecolorallocate($new, $opts['pad'][0], $opts['pad'][1], $opts['pad'][2]);
 						imagefill($new, 0, 0, $color);
