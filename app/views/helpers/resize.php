@@ -7,6 +7,9 @@ class ResizeHelper extends Helper {
 *	- Fix para los hostings con allow_url_fopen desactivado (Youtube thumbnails).
 * 26/Mar/2010 - Revisión de las rutas.
 * 07/Mar/2011 - Parámetros como array y agregada la opción Fill: Las dimensiones especificadas funcionan como mínimas.
+* 28/Nov/2012 - +Opción "pad". Permite ajustar imágenes a un alto y ancho fijo, rellenando las partes sobrantes con un color de fondo.
+* 				bool | array(int[0-255],int[0-255],int[0-255]) | "[0-255] [0-255] [0-255]"
+*				Si es true, tomará el valor default de array(255,255,255). Si es array, deberá componerse de 3 elementos correspondientes a los valores RGB del color de fondo. Si es cadena, los mismos valores, separados por espacios.
 */
 	var $helpers = array('Html');
 	var $cacheDir = 'cache';
@@ -29,7 +32,7 @@ class ResizeHelper extends Helper {
 			'w'=>'',
 			'h'=>'',
 			'fill'=>false,
-			'pad'=>false,/// bool | array(int[0-255],int[0-255],int[0-255]) | "[0-255] [0-255] [0-255]"
+			'pad'=>false,
 			'aspect'=>true,
 			'atts'=>array(),
 			'urlonly'=>false
