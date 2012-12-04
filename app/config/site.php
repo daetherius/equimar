@@ -63,6 +63,9 @@ $config['Site']['og'] = array(
 $modules = array(
 	'products'=>array('productos','menu','admin'=>array('')),
 		'productimgs'=>array('Imágenes','admin'=>false),
+	
+	'categories'=>array('categorías','admin'=>array('tags')),
+
 	'about'=>array('quiénes somos','menu','admin'=>array('pages')),
 	'services'=>array('servicios','menu','admin'=>array('pages')),
 	'posts'=>array('blog','menu','admin'=>array('posts')),

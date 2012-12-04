@@ -479,8 +479,11 @@ div.uploadinfo a{ text-decoration:underline; }
 .controles{ margin-bottom:15px; }
 .controles form{
 	float:right;
-	width:617px;
+	width:316px;
 	position:relative;
+}
+.c_products .controles form{
+	width:617px;
 }
 .controles form #category { margin-right:8px; }
 .controles form #q { width:180px;margin-right:8px;padding-right:30px; }

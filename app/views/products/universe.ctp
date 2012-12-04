@@ -19,4 +19,5 @@ echo
 ?>
 </div><!-- .trans -->
 </div><!-- .pad -->
+<div class="pre-content"></div>
 </div><!-- .content -->

@@ -65,7 +65,7 @@ class UtilHelper extends AppHelper {
 			}
 			
 			if(array_key_exists($opts['field'],$item)){
-				if($resizeopts){ fb($resizeopts,'$resizeopts');
+				if($resizeopts){
 					$th = $this->Resize->resize($item[$opts['field']],$resizeopts);
 				} else {
 					$th = $this->Html->image('/'.$item[$opts['field']]);

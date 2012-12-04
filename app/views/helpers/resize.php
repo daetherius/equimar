@@ -45,12 +45,13 @@ class ResizeHelper extends Helper {
 			$opts['fill'] = false;
 			if(is_string($opts['pad'])){
 				$opts['pad'] = explode(' ',$opts['pad']);
-			} elseif ($opts['pad'] === true) {
+			} elseif ($opts['pad'] === true || (int)$opts['pad'] === 1) {
 				$opts['pad'] = array(255,255,255);
 			}
 		} else {
 			$opts['pad'] = false;
 		}
+
 		$types = array(1 => 'gif', 'jpeg', 'png', 'swf', 'psd', 'wbmp'); // used to determine image type
 		$dimens = $opts['w'].'x'.$opts['h'].($opts['pad'] ? 'pad':'');
 
@@ -129,7 +130,6 @@ class ResizeHelper extends Helper {
 					$new_height = $opts['h'];
 					// Redimensiona en base a la altura (Por no especificar ancho o por ser imagen vertical)
 					if((!$opts['w']) || ($opts['h'] && ($size[1]/$opts['h']) > ($size[0]/$opts['w']))){ // $size[0]:width, [1]:height, [2]:type
-						fb('by H');
 						// Si es relleno de área, se redimensiona en base al eje menor (ancho)
 						if($opts['fill'] && $opts['w']) {
 							$new_height = ceil($opts['w'] / ($size[0]/$size[1]));

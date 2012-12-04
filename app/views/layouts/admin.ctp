@@ -12,9 +12,9 @@
 <meta name="Robots" content="noindex,nofollow" />
 <?=$html->css(array('generic','admin','pulsembox'))?> 
 </head>
-<body class="admin">
 <?php
 echo
+	$html->tag('body',null,'admin c_'.($this->params['controller'])),
 	$html->div('nofooter'),
 		$html->div('header'),
 			$html->link('Cerrar Sesión',array('admin'=>1,'controller'=>'users','action'=>'logout'),array('class'=>'logout','title'=>'Finalizar sesión como administrador','escape'=>false)),
