@@ -29,6 +29,22 @@ class ProductsController extends ItemsController{
 	function ver($id = false) {
 		parent::ver($id);
 
+		$categories = Configure::read('Site.categories');
+		$category = _dec($this->m[0]->field('category',array('Product.id'=>$id)));
+
+		foreach ($categories as $main_category => $subcategories) {
+			if(in_array($category, $subcategories)){
+				$category = $main_category;
+				break;
+			}
+		}
+
+		if(!empty($category)){
+			$cat_id = array_search($category, array_keys($categories))+1;
+			$category_bg = $this->Category->field('src',array('Category.id'=>$cat_id));
+			$this->set(compact('category_bg'));
+		}
+
 		if(!empty($this->params['isAjax'])){
 			$this->set('v',true);
 			$this->render('/elements/th');

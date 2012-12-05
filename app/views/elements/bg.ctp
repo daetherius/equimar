@@ -8,7 +8,7 @@ if(is_c('products',$this)){
 
 		echo $this->element('showcase',array('data'=>$carrusel,'id'=>'bg_showcase','opts'=>array('nav'=>false,'duration'=>2200)));
 	
-	}elseif($this->params['action'] == 'universe' && !empty($category_bg)){
+	}elseif(!empty($category_bg)){
 		echo $html->image('/'.$category_bg,array('alt'=>$category_bg,'class'=>'bg'));
 	}
 

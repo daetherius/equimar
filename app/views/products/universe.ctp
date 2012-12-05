@@ -1,6 +1,7 @@
 <?php
 echo
 	$this->element('main_categories'),
+	$html->div('pre-content',''),
 	$html->div('contentwide'),
 	$html->div('pad trans'),
 	$html->div('trans'),
@@ -19,5 +20,4 @@ echo
 ?>
 </div><!-- .trans -->
 </div><!-- .pad -->
-<div class="pre-content"></div>
 </div><!-- .content -->

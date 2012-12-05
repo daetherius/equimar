@@ -247,6 +247,9 @@ body > img.bg { position:fixed; }
 /******** @GENERAL ************************************************/
 
 .trans { padding:15px 25px;background:url(/img/wpad.png); }
+.a_universe .trans { background:transparent; }
+.a_universe .trans .trans { background:url(/img/wpad_60.png); }
+
 .noresults { font-size:13px;font-style:italic;padding:12px 0;color:#666; }
 .showcase { overflow:hidden; }
 .imagefoot { background:#e9e9e9;margin:0;padding:3px 6px;font-size:10px;color:#555;line-height:15px; }
@@ -509,7 +512,7 @@ div.captcha > span { padding-left:12px; }
 	background-position:339px top;
 }
 
-.a_universe .pre-content { position:relative;height:500px; }
+.a_universe .pre-content { position:relative;height:175px; }
 
 /******** @ABOUT ************************************************/
 
@@ -543,6 +546,12 @@ a.ordernow {
 	line-height:38px;
 }
 a.minisite { line-height:30px;font-weight:bold; }
+
+.detail .column table tr,
+.detail .column table tr td { background:transparent !important; }
+.detail .column table tr td { padding:3px 8px;vertical-align: middle; }
+.detail .column table tr td p { margin:0; }
+.detail .column table tr:nth-child(2n+1) td{ background:#d9d9d9 !important; }
 
 /******** @POSTS ************************************************/
 
